@@ -9,119 +9,117 @@ The platform have implemented first in **MySQL (Sequelize)** and then in **Mongo
 
 ---
 
-## Features
+## **Features**
 
-- **User Authentication & Authorization**
-  - Signup and Signin functionality.
-  - Password encryption using **bcrypt**.
-  - JWT-based authorization for secure access.
-  - Forgot password functionality via **Sendinblue** email service.
-
-- **Premium User Features**
-  - Integrated **Razorpay** for upgrading to premium accounts.
-  - Premium users can:
-    - Download their expense reports.
-    - View download history.
-    - Access a global **leaderboard**.
-  - Exclusive UI elements and themes for premium users.
-
-- **Expense Management**
-  - Track daily expenses, credits, and savings.
-  - Dynamic dashboard showing financial summaries and analytics.
-
-- **AWS Integration**
-  - Download functionality implemented via **AWS S3** for secure file storage.
-
-- **Database**
-  - Dual database support:
-    - **MySQL** with **Sequelize ORM** for structured data.
-    - **MongoDB** with **Mongoose** for flexible document storage.
+* **Expense Management:** Add, view, and delete expenses easily.
+* **User Authentication & Authorization:** Secure sign-in using **bcrypt** for password encryption and **JWT** for user sessions.
+* **Password Reset:** Forgot password feature implemented via **SendinBlue (SIB)** for email recovery.
+* **Premium Membership:** Integrated **Razorpay** payment gateway to upgrade users to premium accounts.
+* **Cloud Integration:** Download and backup expense reports using **AWS S3**.
+* **Premium Dashboard:** Includes a **leaderboard**, **expense download history**, and **advanced UI** for premium users.
+* **Hybrid Database:** Integrated both **MySQL (Sequelize ORM)** and **MongoDB (Mongoose)** for data management and flexibility.
 
 ---
 
-## Tech Stack
+## **Tech Stack**
 
-| Category | Technologies |
-|----------|--------------|
-| **Frontend** | HTML, CSS, JavaScript |
-| **Backend** | Node.js, Express.js |
-| **Databases** | MySQL (Sequelize ORM), MongoDB (Mongoose) |
-| **Authentication** | JWT, bcrypt |
-| **Email Service** | Sendinblue (SIB) |
-| **Payment Integration** | Razorpay |
-| **Cloud Storage** | AWS S3 |
+**Frontend:** HTML, CSS, JavaScript
+**Backend:** Node.js, Express.js
+**Database:** MySQL (Sequelize), MongoDB (Mongoose)
+**Cloud & Security:** AWS S3, JWT, Bcrypt, SendinBlue, Razorpay
 
 ---
 
-## Getting Started
+## **Installation & Setup**
 
-### 1️⃣ Clone the repository
-```bash
-git clone https://github.com/yourusername/finer.git
-cd finer
-````
+1. Clone the repository:
 
-### 2️⃣ Install dependencies
+   ```bash
+   git clone https://github.com/your-username/finer-expense-tracker.git
+   cd finer-expense-tracker
+   ```
 
-```bash
-npm install
-```
+2. Install dependencies:
 
-### 3️⃣ Create a `.env` file
+   ```bash
+   npm install
+   ```
 
-Example configuration:
+3. Create a `.env` file in the root directory and configure it as follows:
 
-```env
-PORT='3000'
-JWT_SECRET_KEY='secretkey'
+   ```env
+   PORT='3000'
+   JWT_SECRET_KEY='secretkey'
+   SIB_API_KEY='your-sendinblue-api-key'
+   RAZORPAY_KEY_ID=''
+   RAZORPAY_KEY_SECRET=''
 
-# Sendinblue API Key
-SIB_API_KEY='xxxxxxxxxxxxxxxxxxxxxxxx'
+   WEBSITE="http://localhost:3000"
 
-# Razorpay Keys
-RAZORPAY_KEY_ID='xxxxxxxxxxxx'
-RAZORPAY_SECRET='xxxxxxxxxxxx'
+   BUCKET_NAME='your-aws-bucket'
+   AWS_ACCESS_KEY_ID='your-aws-key'
+   AWS_SECRET_ACCESS_KEY='your-aws-secret'
 
-# AWS Keys
-BUCKET_NAME='your-bucket'
-AWS_ACCESS_KEY_ID='xxxxxxxxxxxx'
-AWS_SECRET_ACCESS_KEY='xxxxxxxxxxxx'
+   DATABASE_NAME='expense-tracker'
+   DATABASE_USERNAME='root'
+   DATABASE_PASSWORD='yourpassword'
+   DATABASE_DIALECT='mysql'
+   DATABASE_HOST='localhost'
+   ```
 
-# Database Configurations
-MYSQL_DB_NAME='finer'
-MYSQL_USERNAME='root'
-MYSQL_PASSWORD='password'
-MYSQL_DIALECT='mysql'
-MYSQL_HOST='localhost'
+4. Start the application:
 
-MONGODB_URI='mongodb://localhost:27017/finer'
-```
+   ```bash
+   npm start
+   ```
 
-### 4️⃣ Start the application
+5. Open in your browser:
 
-```bash
-npm start
-```
-
-### 5️⃣ Access the app
-
-Visit:
-
-```
-http://localhost:3000
-```
+   ```
+   http://localhost:3000
+   ```
 
 ---
 
+## **API Documentation**
+
+### **Expense Routes**
+
+| Method | Endpoint                      | Description               |
+| ------ | ----------------------------- | ------------------------- |
+| POST   | `/expense/add-expense`        | Add a new expense         |
+| GET    | `/expense/get-expenses`       | Retrieve all expenses     |
+| DELETE | `/expense/delete-expense/:id` | Delete a specific expense |
+
+### **Premium Routes**
+
+| Method | Endpoint                    | Description                     |
+| ------ | --------------------------- | ------------------------------- |
+| POST   | `/premium/leaderboard-data` | Get top users sorted by expense |
+| GET    | `/premium/download`         | Download user expense details   |
+
+### **Purchase Routes**
+
+| Method | Endpoint                       | Description                  |
+| ------ | ------------------------------ | ---------------------------- |
+| POST   | `/purchase/premium-membership` | Upgrade to a premium account |
+
+### **User Routes**
+
+| Method | Endpoint          | Description                        |
+| ------ | ----------------- | ---------------------------------- |
+| POST   | `/user/add-user`  | Sign up a new user                 |
+| POST   | `/user/login`     | Log in existing user               |
+| GET    | `/user/get-users` | Fetch all registered users         |
+| GET    | `/user/get-user`  | Fetch current user using JWT token |
+
+### **Password Routes**
+
+| Method | Endpoint                    | Description                    |
+| ------ | --------------------------- | ------------------------------ |
+| POST   | `/password/forget-password` | Send password reset link       |
+| GET    | `/password/reset/:id`       | Access password reset form     |
+| POST   | `/password/reset`           | Submit and update new password |
 
 ---
 
-## Architecture Highlights
-
-* **Secure Authentication:** JWT and bcrypt.
-* **Cloud Integration:** AWS S3 for file management.
-* **Payment Gateway:** Razorpay for premium purchases.
-* **Email Automation:** Sendinblue for password recovery.
-* **Hybrid Database Model:** Combines relational and NoSQL data management.
-
----
