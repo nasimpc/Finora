@@ -1,12 +1,50 @@
-# Finora
-A Node.Js/ExpressJs Application that helps user to track their expenses.
-● Created Signup and signin pages.
-● Implemented authorization and authentication for password encryption using bcrypt, userid using jwt and
-● forgotpassword link using send in blue.
-● Implemented special Ui features and ui for premium users.
-● Integrated Razorpay for to buy premium account for the user.
-● Premium account has all non premium features plus download expenses, see download history, leaderboard.
-● It can track the expenses, credits and savings of the user and show them in the frontend.
-● Download feature implemented with AWS s3 integration.
-● Implemented the project with sequelize MySql database and Mongoose NoSql database.
-● Tech stack: HTML, CSS, Javascript, Nodejs, Expressjs, mysql, Sequelize, AWS, JWT, Razorpay ,SIB,bycrypt.
+# 💰 Finora
+
+**Finora** is a Node.js and Express.js web application that helps users **track and manage their expenses** efficiently.  
+It includes features like authentication, premium membership, AWS S3 integration for downloads, and both SQL/NoSQL database support.
+
+---
+
+## 🚀 Features
+
+- 🧾 **User Authentication & Authorization**
+  - Signup and Signin functionality.
+  - Password encryption using **bcrypt**.
+  - JWT-based authentication for secure session management.
+  - Forgot password functionality via **Sendinblue** email integration.
+
+- 💎 **Premium User Features**
+  - Integrated **Razorpay** for upgrading to premium accounts.
+  - Premium users can:
+    - Download expense reports.
+    - View download history.
+    - Access a global **leaderboard**.
+  - Custom UI enhancements for premium users.
+
+- 💰 **Expense Management**
+  - Track expenses, income, and savings.
+  - Real-time analytics displayed on the frontend.
+
+- ☁️ **AWS S3 Integration**
+  - Securely stores and retrieves user expense data for downloads.
+
+- 🗃️ **Database**
+  - Implemented using both **Sequelize (MySQL)** and **Mongoose (NoSQL)** for flexibility and scalability.
+
+---
+
+## 🧑‍💻 Tech Stack
+
+| Category | Technologies |
+|-----------|---------------|
+| **Frontend** | HTML, CSS, JavaScript |
+| **Backend** | Node.js, Express.js |
+| **Database** | MySQL (Sequelize ORM), MongoDB (Mongoose) |
+| **Authentication** | JWT, bcrypt |
+| **Email Service** | Sendinblue (SIB) |
+| **Payment Integration** | Razorpay |
+| **Cloud Storage** | AWS S3 |
+
+---
+
+
