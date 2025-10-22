@@ -1,66 +1,122 @@
-# Expense Tracker 
- 
-## How to use
 
-* step 1: npm install
-* step 2: .env file creation (example model):
-```sh
-PORT='3000'
-JWT_SECRET_KEY='secretkey'
-SIB_API_KEY ='qwiwegnkasdjvakdglasefdiaskdfasdkasgasdkjdfkjadsfkng'
-RAZORPAY_KEY_ID=''
-RAZORPAY_KEY_SECRET=''
+---
 
-WEBSITE="http://localhost:3000"
+# Finora
 
-BUCKET_NAME = 'jasdfjasdf'
-AWS_ACCESS_KEY_ID='asdfasdfasdf'
-AWS_SECRET_ACCESS_KEY='asdfasdfasdf'
+A full-stack **Node.js/Express.js** web application, here users can register, log in, manage their finances, and even unlock **premium features** like data downloads, leaderboards, and expense history tracking.
 
-DATABASE_NAME='expense-tracker'
-DATABASE_USERNAME='root'
-DATABASE_PASSWORD='asdfasdfasdf'
-DATABASE_DIALECT='mysql'
-DATABASE_HOST='localhost'
-```
-* step 4: npm start
-* step 5: url to start the web application eg: http://localhost:3000(port number)/
-* Thank you for using Expense-tracker. for any futher enquery and support, email: nasimpcm@gmail.com
+---
 
-  # Api documentation
-  
-  ## List of available Routes
-  
-  **Expense route**:
-  
-  * `POST expense/add-expense`- for adding a new expense
-  * `GET expense/get-expenses`- for getting expenses to show in the expense table
-  * `DELETE expense/delete-expense/:id`- deleting a particular expense from the expense table
-  
-  **premium route**:
-  
-  * `POST premium/leaderboard-data`- for getting top users names sorted by descending order of their expense 
-  * `GET premium/download` - downloading the details about the expenses of the user
-  
-  **purchase route**:
-  
-  * `POST purchase/premium-membership`- changing from normal user to premium user
-  
-  **user route**:
-  
-  * `POST user/add-user`- signup
-  * `POST user/login`-login
-  * `GET user/get-users`- get details about all other users
-  * `GET user/get-user`- to get details of the current user from saved JWT token in local storage
+## **Features**
 
-  **password route**:
-  
-  * `POST password/forget-password`- get change password email
-  * `GET password/reset/:id`- get from for changing password
-  * `POST password/reset`- change the password
-  
-  
-  
-  
-  
+* **Expense Management:** Add, view, and delete expenses easily.
+* **User Authentication & Authorization:** Secure sign-in using **bcrypt** for password encryption and **JWT** for user sessions.
+* **Password Reset:** Forgot password feature implemented via **SendinBlue (SIB)** for email recovery.
+* **Premium Membership:** Integrated **Razorpay** payment gateway to upgrade users to premium accounts.
+* **Cloud Integration:** Download and backup expense reports using **AWS S3**.
+* **Premium Dashboard:** Includes a **leaderboard**, **expense download history**, and **advanced UI** for premium users.
+* **Hybrid Database:** Integrated both **MySQL (Sequelize ORM)** and **MongoDB (Mongoose)** for data management and flexibility.
 
+---
+
+## **Tech Stack**
+
+**Frontend:** HTML, CSS, JavaScript
+**Backend:** Node.js, Express.js
+**Database:** MySQL (Sequelize), MongoDB (Mongoose)
+**Cloud & Security:** AWS S3, JWT, Bcrypt, SendinBlue, Razorpay
+
+---
+
+## **Installation & Setup**
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/finer-expense-tracker.git
+   cd finer-expense-tracker
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the root directory and configure it as follows:
+
+   ```env
+   PORT='3000'
+   JWT_SECRET_KEY='secretkey'
+   SIB_API_KEY='your-sendinblue-api-key'
+   RAZORPAY_KEY_ID=''
+   RAZORPAY_KEY_SECRET=''
+
+   WEBSITE="http://localhost:3000"
+
+   BUCKET_NAME='your-aws-bucket'
+   AWS_ACCESS_KEY_ID='your-aws-key'
+   AWS_SECRET_ACCESS_KEY='your-aws-secret'
+
+   DATABASE_NAME='expense-tracker'
+   DATABASE_USERNAME='root'
+   DATABASE_PASSWORD='yourpassword'
+   DATABASE_DIALECT='mysql'
+   DATABASE_HOST='localhost'
+   ```
+
+4. Start the application:
+
+   ```bash
+   npm start
+   ```
+
+5. Open in your browser:
+
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## **API Documentation**
+
+### **Expense Routes**
+
+| Method | Endpoint                      | Description               |
+| ------ | ----------------------------- | ------------------------- |
+| POST   | `/expense/add-expense`        | Add a new expense         |
+| GET    | `/expense/get-expenses`       | Retrieve all expenses     |
+| DELETE | `/expense/delete-expense/:id` | Delete a specific expense |
+
+### **Premium Routes**
+
+| Method | Endpoint                    | Description                     |
+| ------ | --------------------------- | ------------------------------- |
+| POST   | `/premium/leaderboard-data` | Get top users sorted by expense |
+| GET    | `/premium/download`         | Download user expense details   |
+
+### **Purchase Routes**
+
+| Method | Endpoint                       | Description                  |
+| ------ | ------------------------------ | ---------------------------- |
+| POST   | `/purchase/premium-membership` | Upgrade to a premium account |
+
+### **User Routes**
+
+| Method | Endpoint          | Description                        |
+| ------ | ----------------- | ---------------------------------- |
+| POST   | `/user/add-user`  | Sign up a new user                 |
+| POST   | `/user/login`     | Log in existing user               |
+| GET    | `/user/get-users` | Fetch all registered users         |
+| GET    | `/user/get-user`  | Fetch current user using JWT token |
+
+### **Password Routes**
+
+| Method | Endpoint                    | Description                    |
+| ------ | --------------------------- | ------------------------------ |
+| POST   | `/password/forget-password` | Send password reset link       |
+| GET    | `/password/reset/:id`       | Access password reset form     |
+| POST   | `/password/reset`           | Submit and update new password |
+
+---
