@@ -125,8 +125,3 @@ http://localhost:3000
 * **Hybrid Database Model:** Combines relational and NoSQL data management.
 
 ---
-
----
-
-Would you like me to make an additional **short version (for portfolio)** that summarizes Finer in 4–5 lines for display on your GitHub profile or personal site?
-```
