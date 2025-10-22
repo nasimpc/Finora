@@ -116,7 +116,7 @@ http://localhost:3000
 
 ---
 
-## 🧠 Architecture Highlights
+## Architecture Highlights
 
 * **Secure Authentication:** JWT and bcrypt.
 * **Cloud Integration:** AWS S3 for file management.
